@@ -115,3 +115,6 @@ RUN cd /usr/local/bin \
 && mv Rscript Rscriptdevel \
 && ln -s Rdevel RD \
 && ln -s Rscriptdevel RDscript
+
+# Install R dependencies
+RUN Rdevel -e "install.packages(c('Rcpp', 'testthat', 'roxygen2', 'highlight', 'zoo', 'microbenchmark', 'knitr', 'rmarkdown', 'nycflights13', 'bit64'))"
